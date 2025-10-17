@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/ocpa-app/ocpa-app.dart';
+import 'package:flutter_app/ui/ocpa_app/ocpa_app.dart';
 import 'package:provider/provider.dart';
 
 class FavoritesPage extends StatelessWidget {

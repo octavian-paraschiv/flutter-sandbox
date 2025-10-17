@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/shared/hyper-link.widget.dart';
-import 'package:flutter_app/data/services/protone-builds.service.dart';
-import 'package:flutter_app/data/models/protone-builds.models.dart';
+import 'package:flutter_app/ui/shared/hyper_link.widget.dart';
+import 'package:flutter_app/data/services/protone_builds/protone_builds.service.dart';
+import 'package:flutter_app/data/models/protone_builds/protone_builds.models.dart';
 
 class ProtoneBuildsPage extends StatelessWidget {
   final Future<List<BuildInfo>> _future = loadBuilds();

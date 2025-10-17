@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'protone-builds.models.dart';
+part of 'protone_builds.models.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

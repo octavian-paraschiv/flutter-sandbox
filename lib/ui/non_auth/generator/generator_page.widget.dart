@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/ocpa-app/ocpa-app.dart';
-import 'package:flutter_app/ui/shared/big-card.widget.dart';
+import 'package:flutter_app/ui/ocpa_app/ocpa_app.dart';
+import 'package:flutter_app/ui/shared/big_card.widget.dart';
 import 'package:provider/provider.dart';
 
 class GeneratorPage extends StatelessWidget {

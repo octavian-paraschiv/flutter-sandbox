@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter_app/data/models/protone-builds.models.dart';
+import 'package:flutter_app/data/models/protone_builds/protone_builds.models.dart';
 import 'package:http/http.dart' as http;
 
 class ProtoneBuildsService {

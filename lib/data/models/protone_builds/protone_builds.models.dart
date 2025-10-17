@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'protone-builds.models.g.dart';
+part 'protone_builds.models.g.dart';
 
 @JsonSerializable()
 class BuildInfo {

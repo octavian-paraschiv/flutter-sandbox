@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ui/non-auth/favorites/favorites-page.widget.dart';
-import 'package:flutter_app/ui/non-auth/generator/generator-page.widget.dart';
-import 'package:flutter_app/ui/non-auth/protone-builds/protone-builds-page.widget.dart';
+import 'package:flutter_app/ui/non_auth/favorites/favorites_page.widget.dart';
+import 'package:flutter_app/ui/non_auth/generator/generator_page.widget.dart';
+import 'package:flutter_app/ui/non_auth/protone-builds/protone_builds_page.widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
