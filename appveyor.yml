@@ -1,0 +1,19 @@
+version: "{build}"
+
+environment:
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
+
+# No install section needed — Flutter & .NET SDK already exist
+
+build_script:
+  - ps: |
+      if ($env:APPVEYOR_BUILD_WORKER_IMAGE -like "Visual Studio*") {
+        flutter build windows
+      }
+
+  - sh: |
+      if [ "$APPVEYOR_BUILD_WORKER_IMAGE" = "Ubuntu2204" ]; then
+        flutter build linux
+      fi
