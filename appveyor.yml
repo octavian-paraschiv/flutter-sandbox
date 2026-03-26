@@ -1,11 +1,38 @@
-version: "{build}"
+version: "1.0.{build}"
 
 environment:
   matrix:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
     - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
 
-# No install section needed — Flutter & .NET SDK already exist
+install:
+  - ps: |
+      if ($env:APPVEYOR_BUILD_WORKER_IMAGE -like "Visual Studio*") {
+        Write-Host "Installing newer Flutter SDK on Windows..."
+
+        $flutterUrl = "https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.41.5-stable.zip"
+        Invoke-WebRequest $flutterUrl -OutFile flutter.zip
+
+        Expand-Archive flutter.zip -DestinationPath C:\Tools
+        $env:PATH = "C:\Tools\flutter\bin;$env:PATH"
+
+        flutter --version
+      }
+
+  - sh: |
+      if [ "$APPVEYOR_BUILD_WORKER_IMAGE" = "Ubuntu2204" ]; then
+        echo "Installing newer Flutter SDK on Linux..."
+
+        sudo apt-get update
+        sudo apt-get install -y curl unzip xz-utils git
+
+        curl -LO https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.41.5-stable.tar.xz
+        tar xf flutter_linux_3.41.5-stable.tar.xz
+
+        export PATH="$PWD/flutter/bin:$PATH"
+
+        flutter --version
+
 
 build_script:
   - ps: |
@@ -17,3 +44,8 @@ build_script:
       if [ "$APPVEYOR_BUILD_WORKER_IMAGE" = "Ubuntu2204" ]; then
         flutter build linux
       fi
+
+artifacts:
+  - path: "build/**/release/*"
+    name: flutter-desktop
+    type: Zip
